@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Django Practice</title>
+</head>
+
+<style>
+  table,tr,td,th{
+    border:1px solid black
+  }
+  table{
+    padding:100px;
+    margin-left:30%;
+
+  }
+</style>
+<body>
+   {{peoples}}
+
+   <table class="container">
+    <tr>
+      <th>S.No</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Major or Minor</th>
+    </tr>
+
+    {% for people in peoples %}
+
+    <tr>
+      <td>{{forloop.counter}}</td>
+      <td>{{people.name}}</td>
+      <td>{{people.age}}</td>
+      <td>
+        {% if people.age >= 18 %}
+         Major
+        {% else %}
+         Minor
+        {% endif %}
+      </td>
+    </tr>
+
+    {% endfor %}
+
+  </table>
+
+</body>
+</html>
